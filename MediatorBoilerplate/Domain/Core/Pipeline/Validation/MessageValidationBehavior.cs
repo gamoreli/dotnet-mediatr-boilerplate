@@ -1,36 +1,30 @@
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using FluentValidation;
-using LanguageExt;
-using MediatorBoilerplate.Domain.Core.Base.Failures;
+using MediatorBoilerplate.Domain.Core.Base.Exceptions;
 using MediatorBoilerplate.Domain.Core.Base.Responses;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
 namespace MediatorBoilerplate.Domain.Core.Pipeline.Validation
 {
-    public class
-        MessageValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, Either<Failure, Response>>
-        where TRequest : IMessageValidationBehavior<Either<Failure, Response>>
+    public class MessageValidationBehavior<TRequest> : IPipelineBehavior<TRequest, Response>
+        where TRequest : IMessageValidationBehavior<Response>
     {
         private readonly ILogger _logger;
-        private readonly IValidator<TRequest> _validator;
+        
+        public MessageValidationBehavior(ILogger logger) => _logger = logger;
 
-        public MessageValidationBehavior(ILogger logger, IValidator<TRequest> validator)
+        public async Task<Response> Handle(TRequest request, CancellationToken cancellationToken,
+            RequestHandlerDelegate<Response> next)
         {
-            _logger = logger;
-            _validator = validator;
-        }
+            _logger.LogInformation("Starting input validation");
 
-        public async Task<Either<Failure, Response>> Handle(TRequest request, CancellationToken cancellationToken,
-            RequestHandlerDelegate<Either<Failure, Response>> next)
-        {
-            // var failures = (await _validator.ValidateAsync(request, cancellationToken)).Errors.Where(failure => failure != null).ToList();
-            //
-            // if (failures.Any())
-            // {
-            //     return new BadRequestFailure(message: "Erro");
-            // }
+            if (!request.InputErrors().Any())
+                throw new CustomValidationException(request.InputErrors()
+                    .Aggregate((a, b) => $"{a}, {b}"), "Input");
+
+            _logger.LogInformation("Input validation finished");
 
             return await next();
         }

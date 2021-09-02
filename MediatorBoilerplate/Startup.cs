@@ -56,7 +56,7 @@ namespace MediatorBoilerplate
             _container.RegisterSingleton<IMediator>(() => new Mediator(Get));
             _container.Collection.Register(typeof(IPipelineBehavior<,>), new[]
             {
-                typeof(MessageValidationBehavior<,>)
+                typeof(MessageValidationBehavior<>)
             });
             _container.Register(typeof(IRequestHandler<,>), Assembly.GetExecutingAssembly());
         }

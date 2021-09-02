@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/gabrielmoreli/Documents/development/projects/mediator_boilerplate/MediatorBoilerplate/MediatorBoilerplate.csproj": {}
+    "/Users/gmoreli/Documents/projects/peer/dotnet-mediatr-boilerplate/MediatorBoilerplate/MediatorBoilerplate.csproj": {}
   },
   "projects": {
-    "/Users/gabrielmoreli/Documents/development/projects/mediator_boilerplate/MediatorBoilerplate/MediatorBoilerplate.csproj": {
+    "/Users/gmoreli/Documents/projects/peer/dotnet-mediatr-boilerplate/MediatorBoilerplate/MediatorBoilerplate.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/gabrielmoreli/Documents/development/projects/mediator_boilerplate/MediatorBoilerplate/MediatorBoilerplate.csproj",
+        "projectUniqueName": "/Users/gmoreli/Documents/projects/peer/dotnet-mediatr-boilerplate/MediatorBoilerplate/MediatorBoilerplate.csproj",
         "projectName": "MediatorBoilerplate",
-        "projectPath": "/Users/gabrielmoreli/Documents/development/projects/mediator_boilerplate/MediatorBoilerplate/MediatorBoilerplate.csproj",
-        "packagesPath": "/Users/gabrielmoreli/.nuget/packages/",
-        "outputPath": "/Users/gabrielmoreli/Documents/development/projects/mediator_boilerplate/MediatorBoilerplate/obj/",
+        "projectPath": "/Users/gmoreli/Documents/projects/peer/dotnet-mediatr-boilerplate/MediatorBoilerplate/MediatorBoilerplate.csproj",
+        "packagesPath": "/Users/gmoreli/.nuget/packages/",
+        "outputPath": "/Users/gmoreli/Documents/projects/peer/dotnet-mediatr-boilerplate/MediatorBoilerplate/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/gabrielmoreli/.nuget/NuGet/NuGet.Config"
+          "/Users/gmoreli/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -97,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.302/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.400/RuntimeIdentifierGraph.json"
         }
       }
     }
